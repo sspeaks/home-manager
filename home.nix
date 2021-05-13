@@ -12,8 +12,7 @@ let
     ln -s ${pkgs.coreutils}/bin/dircolors $out/bin/dircolors
     cp ${LS_COLORS}/LS_COLORS $out/share/LS_COLORS
   '';
-
-  #shell-prompt = pkgs.callPackage ./shell-prompt { };
+  included_packages = with pkgs; [ ripgrep git starship shellcheck];
 in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -24,10 +23,8 @@ in {
   # paths it should manage.
   home.username = "sspeaks";
   home.homeDirectory = "/home/sspeaks";
-  home.packages = [ pkgs.ripgrep pkgs.git ls-colors 
-  #shell-prompt 
-  pkgs.starship
-  pkgs.shellcheck ];
+  home.packages = [ ls-colors ] ++ included_packages;
+
   home.sessionVariables = {
     EDITOR = "vim";
   };

@@ -1,7 +1,6 @@
 
 autoload colors
 colors
-
 # Enable ..<TAB> -> ../
 zstyle ':completion:*' special-dirs true
 
@@ -15,5 +14,3 @@ fi
 bindkey  "^[[H"   beginning-of-line
 bindkey  "^[[F"   end-of-line
 bindkey  "^[[3~"  delete-char
-
-SPACESHIP_DIR_PREFIX='' # disable directory prefix, cause it's not the first section
