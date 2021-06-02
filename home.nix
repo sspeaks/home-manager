@@ -12,7 +12,7 @@ let
     ln -s ${pkgs.coreutils}/bin/dircolors $out/bin/dircolors
     cp ${LS_COLORS}/LS_COLORS $out/share/LS_COLORS
   '';
-  included_packages = with pkgs; [ ripgrep git starship shellcheck];
+  included_packages = with pkgs; [ ripgrep htop screen git starship shellcheck];
 in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
